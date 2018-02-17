@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Request` trait in crate `conduit`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Request">
+
+    <title>conduit::Request - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../dark.css">
+    <link rel="stylesheet" type="text/css" href="../main.css" id="themeStyle">
+    <script src="../storage.js"></script>
+    
+
+    
+    
+</head>
+<body class="rustdoc trait">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Trait Request</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.http_version">http_version</a><a href="#tymethod.conduit_version">conduit_version</a><a href="#tymethod.method">method</a><a href="#tymethod.scheme">scheme</a><a href="#tymethod.host">host</a><a href="#tymethod.virtual_root">virtual_root</a><a href="#tymethod.path">path</a><a href="#tymethod.query_string">query_string</a><a href="#tymethod.remote_addr">remote_addr</a><a href="#tymethod.content_length">content_length</a><a href="#tymethod.headers">headers</a><a href="#tymethod.body">body</a><a href="#tymethod.extensions">extensions</a><a href="#tymethod.mut_extensions">mut_extensions</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='index.html'>conduit</a></p><script>window.sidebarCurrent = {name: 'Request', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../theme.js"></script>
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>conduit</a>::<wbr><a class="trait" href=''>Request</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/conduit/lib.rs.html#66-111' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait Request {
+    fn <a href='#tymethod.http_version' class='fnname'>http_version</a>(&amp;self) -&gt; Version;
+<div class='item-spacer'></div>    fn <a href='#tymethod.conduit_version' class='fnname'>conduit_version</a>(&amp;self) -&gt; Version;
+<div class='item-spacer'></div>    fn <a href='#tymethod.method' class='fnname'>method</a>(&amp;self) -&gt; <a class="enum" href="../conduit/enum.Method.html" title="enum conduit::Method">Method</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.scheme' class='fnname'>scheme</a>(&amp;self) -&gt; <a class="enum" href="../conduit/enum.Scheme.html" title="enum conduit::Scheme">Scheme</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.host' class='fnname'>host</a>&lt;'a&gt;(&amp;'a self) -&gt; <a class="enum" href="../conduit/enum.Host.html" title="enum conduit::Host">Host</a>&lt;'a&gt;;
+<div class='item-spacer'></div>    fn <a href='#tymethod.virtual_root' class='fnname'>virtual_root</a>&lt;'a&gt;(&amp;'a self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;;
+<div class='item-spacer'></div>    fn <a href='#tymethod.path' class='fnname'>path</a>&lt;'a&gt;(&amp;'a self) -&gt; &amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.query_string' class='fnname'>query_string</a>&lt;'a&gt;(&amp;'a self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;;
+<div class='item-spacer'></div>    fn <a href='#tymethod.remote_addr' class='fnname'>remote_addr</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html" title="enum std::net::addr::SocketAddr">SocketAddr</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.content_length' class='fnname'>content_length</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;;
+<div class='item-spacer'></div>    fn <a href='#tymethod.headers' class='fnname'>headers</a>&lt;'a&gt;(&amp;'a self) -&gt; &amp;'a <a class="trait" href="../conduit/trait.Headers.html" title="trait conduit::Headers">Headers</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.body' class='fnname'>body</a>&lt;'a&gt;(&amp;'a mut self) -&gt; &amp;'a mut <a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html" title="trait std::io::Read">Read</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.extensions' class='fnname'>extensions</a>&lt;'a&gt;(&amp;'a self) -&gt; &amp;'a <a class="type" href="../conduit/type.Extensions.html" title="type conduit::Extensions">Extensions</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.mut_extensions' class='fnname'>mut_extensions</a>&lt;'a&gt;(&amp;'a mut self) -&gt; &amp;'a mut <a class="type" href="../conduit/type.Extensions.html" title="type conduit::Extensions">Extensions</a>;
+}</pre>
+            <h2 id='required-methods' class='small-section-header'>
+              Required Methods<a href='#required-methods' class='anchor'></a>
+            </h2>
+            <div class='methods'>
+        <h3 id='tymethod.http_version' class='method'><span id='http_version.v' class='invisible'><code>fn <a href='#tymethod.http_version' class='fnname'>http_version</a>(&amp;self) -&gt; Version</code></span></h3><div class='docblock'><p>The version of HTTP being used</p>
+</div><h3 id='tymethod.conduit_version' class='method'><span id='conduit_version.v' class='invisible'><code>fn <a href='#tymethod.conduit_version' class='fnname'>conduit_version</a>(&amp;self) -&gt; Version</code></span></h3><div class='docblock'><p>The version of the conduit spec being used</p>
+</div><h3 id='tymethod.method' class='method'><span id='method.v' class='invisible'><code>fn <a href='#tymethod.method' class='fnname'>method</a>(&amp;self) -&gt; <a class="enum" href="../conduit/enum.Method.html" title="enum conduit::Method">Method</a></code></span></h3><div class='docblock'><p>The request method, such as GET, POST, PUT, DELETE or PATCH</p>
+</div><h3 id='tymethod.scheme' class='method'><span id='scheme.v' class='invisible'><code>fn <a href='#tymethod.scheme' class='fnname'>scheme</a>(&amp;self) -&gt; <a class="enum" href="../conduit/enum.Scheme.html" title="enum conduit::Scheme">Scheme</a></code></span></h3><div class='docblock'><p>The scheme part of the request URL</p>
+</div><h3 id='tymethod.host' class='method'><span id='host.v' class='invisible'><code>fn <a href='#tymethod.host' class='fnname'>host</a>&lt;'a&gt;(&amp;'a self) -&gt; <a class="enum" href="../conduit/enum.Host.html" title="enum conduit::Host">Host</a>&lt;'a&gt;</code></span></h3><div class='docblock'><p>The host part of the requested URL</p>
+</div><h3 id='tymethod.virtual_root' class='method'><span id='virtual_root.v' class='invisible'><code>fn <a href='#tymethod.virtual_root' class='fnname'>virtual_root</a>&lt;'a&gt;(&amp;'a self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;</code></span></h3><div class='docblock'><p>The initial part of the request URL's path that corresponds
+to a virtual root. This allows an application to have a
+virtual location that consumes part of the path.</p>
+</div><h3 id='tymethod.path' class='method'><span id='path.v' class='invisible'><code>fn <a href='#tymethod.path' class='fnname'>path</a>&lt;'a&gt;(&amp;'a self) -&gt; &amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code></span></h3><div class='docblock'><p>The remainder of the path.</p>
+</div><h3 id='tymethod.query_string' class='method'><span id='query_string.v' class='invisible'><code>fn <a href='#tymethod.query_string' class='fnname'>query_string</a>&lt;'a&gt;(&amp;'a self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;</code></span></h3><div class='docblock'><p>The portion of the request URL that follows the &quot;?&quot;</p>
+</div><h3 id='tymethod.remote_addr' class='method'><span id='remote_addr.v' class='invisible'><code>fn <a href='#tymethod.remote_addr' class='fnname'>remote_addr</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html" title="enum std::net::addr::SocketAddr">SocketAddr</a></code></span></h3><div class='docblock'><p>The remote IP address of the client or the last proxy that
+sent the request.</p>
+</div><h3 id='tymethod.content_length' class='method'><span id='content_length.v' class='invisible'><code>fn <a href='#tymethod.content_length' class='fnname'>content_length</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;</code></span></h3><div class='docblock'><p>The byte-size of the body, if any</p>
+</div><h3 id='tymethod.headers' class='method'><span id='headers.v' class='invisible'><code>fn <a href='#tymethod.headers' class='fnname'>headers</a>&lt;'a&gt;(&amp;'a self) -&gt; &amp;'a <a class="trait" href="../conduit/trait.Headers.html" title="trait conduit::Headers">Headers</a></code></span></h3><div class='docblock'><p>The request's headers, as conduit::Headers.</p>
+</div><h3 id='tymethod.body' class='method'><span id='body.v' class='invisible'><code>fn <a href='#tymethod.body' class='fnname'>body</a>&lt;'a&gt;(&amp;'a mut self) -&gt; &amp;'a mut <a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html" title="trait std::io::Read">Read</a></code></span></h3><div class='docblock'><p>A Reader for the body of the request</p>
+</div><h3 id='tymethod.extensions' class='method'><span id='extensions.v' class='invisible'><code>fn <a href='#tymethod.extensions' class='fnname'>extensions</a>&lt;'a&gt;(&amp;'a self) -&gt; &amp;'a <a class="type" href="../conduit/type.Extensions.html" title="type conduit::Extensions">Extensions</a></code></span></h3><div class='docblock'><p>A readable map of extensions</p>
+</div><h3 id='tymethod.mut_extensions' class='method'><span id='mut_extensions.v' class='invisible'><code>fn <a href='#tymethod.mut_extensions' class='fnname'>mut_extensions</a>&lt;'a&gt;(&amp;'a mut self) -&gt; &amp;'a mut <a class="type" href="../conduit/type.Extensions.html" title="type conduit::Extensions">Extensions</a></code></span></h3><div class='docblock'><p>A mutable map of extensions</p>
+</div></div>
+        <h2 id='implementors' class='small-section-header'>
+          Implementors<a href='#implementors' class='anchor'></a>
+        </h2>
+        <ul class='item-list' id='implementors-list'>
+    </ul><script type="text/javascript" async
+                         src="../implementors/conduit/trait.Request.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "conduit";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>
